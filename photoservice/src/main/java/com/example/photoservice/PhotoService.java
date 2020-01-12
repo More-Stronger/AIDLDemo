@@ -16,14 +16,16 @@ import java.util.List;
 
 public class PhotoService extends Service {
     private static final String TAG = "AIDL--TEST";
-
+    // 跨进程静态成员失效
+    public static boolean AIDL_FLAG = false;
     private List<PhotoBean> photoBeans;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Log.e(TAG, "PhotoService-->onCreate");
-
+        AIDL_FLAG = true;
+        Log.e(TAG, "PhotoService-->AIDL_FLAG " + AIDL_FLAG);
         photoBeans = new ArrayList<>();
         photoBeans.add(new PhotoBean("a"));
         photoBeans.add(new PhotoBean("b"));

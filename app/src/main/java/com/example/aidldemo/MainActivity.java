@@ -13,14 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.aidllib.IPhotoAidlInterface;
 import com.example.aidllib.PhotoBean;
+import com.example.photoservice.PhotoService;
 
 import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "AIDL--TEST";
-    // 跨进程静态成员失效
-    public static boolean AIDL_FLAG = false;
 
     private IPhotoAidlInterface iPhotoAidl;
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -103,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        findViewById(R.id.btn_photo_aidl_flag).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG, "PhotoService-->AIDL_FLAG " + PhotoService.AIDL_FLAG);
             }
         });
     }
