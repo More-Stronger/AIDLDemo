@@ -1,0 +1,2 @@
+include ':app', ':photoservice', ':aidllib'
+rootProject.name='AIDLDemo'

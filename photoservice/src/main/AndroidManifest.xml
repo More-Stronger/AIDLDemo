@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.photoservice">
+
+    <application>
+        <service
+            android:name=".PhotoService"
+            android:process=":PhotoService">
+            <intent-filter>
+                <action android:name="com.example.photoservice.PhotoService" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
